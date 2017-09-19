@@ -1,0 +1,46 @@
+<p>This is the partial for view 2.</p>
+<p>
+  Showing of 'interpolate' filter:
+  
+  <br />
+ 
+<div ng-app="inlineEdit">
+ <div class="row">
+	<div class="col-md-3">
+  <table class="table" ng-controller="View2Ctrl as people">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Job Title</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="person in people.collection">
+        <td>
+          <input type="text" class="form-control" ng-model="person.FirstName" ng-if="person.editing" />
+          <span ng-if="!person.editing">{{person.FirstName}}</span>
+        </td>
+        <td>
+          <input type="text" class="form-control" ng-model="person.LastName" ng-if="person.editing" />
+          <span ng-if="!person.editing">{{person.LastName}}</span>
+        </td>
+        <td>
+          <input type="text" class="form-control" ng-model="person.JobTitle" ng-if="person.editing" />
+          <span ng-if="!person.editing">{{person.JobTitle}}</span>
+        </td>
+        <td>
+          <button class="btn btn-xs btn-primary" ng-click="people.editor.edit(person)" ng-if="!person.editing">Edit</button>
+          <span ng-if="person.editing">
+            <button type="submit" class="btn btn-xs btn-success" ng-click="people.editor.save()">Save</button>
+            <button type="button" class="btn btn-xs btn-default" ng-click="people.editor.cancel()">Cancel</button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+</div>
+</p>
